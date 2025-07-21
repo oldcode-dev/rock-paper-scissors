@@ -5,5 +5,8 @@ function getComputerChoice(){
     return choice;
 }
 
-getComputerChoice();
+function getHumanChoice(){
+    let decision = prompt('Enter your decision');
+    return decision;
+}
 
