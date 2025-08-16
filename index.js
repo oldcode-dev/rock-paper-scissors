@@ -10,7 +10,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let decision = prompt('Enter your decision').toLowerCase();
+    // let decision = prompt('Enter your decision').toLowerCase();
     return decision;
 }
 
