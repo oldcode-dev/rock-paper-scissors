@@ -1,17 +1,36 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const choiceRock = document.querySelector(".rock");
+const choicePaper = document.querySelector(".paper");
+const choiceScissors = document.querySelector(".scissors");
+
+const humanChoice = document.querySelector(".humanChoice");
+const computerChoice = document.getElementById('computerChoice');
+
+
+const roundContainer = document.querySelector(".gameRounds > span");
 
 function getComputerChoice() {
-    const decision = ["rock", "paper", "scissors"];
+    const decisions = [
+        { choice: "rock", image: "./rps Game Images/rock.png" },
+        { choice: "paper", image: "./rps Game Images/paper.png" },
+        { choice: "scissors", image: "./rps Game Images/scissors.png" }
+    ];
 
-    const choice = decision[Math.floor(Math.random() * 3)];
+    // Pick a random decision
+    const { choice, image } = decisions[Math.floor(Math.random() * decisions.length)];
+
+    // Update image and class
+    computerChoice.src = image;
+    computerChoice.className = choice; // replaces all classes with the new one
+
     return choice;
 }
 
 function getHumanChoice() {
-    // let decision = prompt('Enter your decision').toLowerCase();
-    return decision;
+
+
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -32,21 +51,21 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    let round = 0;
+// function playGame() {
+//     let round = 0;
 
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
+//     for (let i = 0; i < 5; i++) {
+//         const humanChoice = getHumanChoice();
+//         const computerChoice = getComputerChoice();
 
-        const result = playRound(humanChoice, computerChoice);
-        console.log(result);
-        console.log(`Round ${round + 1} Scores: computer ${computerScore} - human ${humanScore}`);
-        round++;
-    }
-}
+//         const result = playRound(humanChoice, computerChoice);
+//         console.log(result);
+//         console.log(`Round ${round + 1} Scores: computer ${computerScore} - human ${humanScore}`);
+//         round++;
+//     }
+// }
 
-playGame();
+// playGame();
 
 
 
