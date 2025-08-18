@@ -1,23 +1,21 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const choiceRock = document.querySelector(".rock");
-const choicePaper = document.querySelector(".paper");
-const choiceScissors = document.querySelector(".scissors");
+const decisions = [
+    { choice: "rock", image: "./rps Game Images/rock.png" },
+    { choice: "paper", image: "./rps Game Images/paper.png" },
+    { choice: "scissors", image: "./rps Game Images/scissors.png" }
+];
+
+const userOptions = document.querySelectorAll('#user-options .rps-icon');
 
 const humanChoice = document.querySelector(".humanChoice");
 const computerChoice = document.getElementById('computerChoice');
-
-
 const roundContainer = document.querySelector(".gameRounds > span");
+const humanScoreContainer = document.querySelector("#humanScore > span");
+const computerScoreContainer = document.querySelector("#computerScore > span");
 
 function getComputerChoice() {
-    const decisions = [
-        { choice: "rock", image: "./rps Game Images/rock.png" },
-        { choice: "paper", image: "./rps Game Images/paper.png" },
-        { choice: "scissors", image: "./rps Game Images/scissors.png" }
-    ];
-
     // Pick a random decision
     const { choice, image } = decisions[Math.floor(Math.random() * decisions.length)];
 
@@ -29,8 +27,19 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
+    const userOptions = document.querySelectorAll('#user-options .rps-icon');
 
+    userOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const userChoice = option.getAttribute('data-choice');
+            // Update image and class
+            humanChoice.src = `./rps Game Images/${userChoice}.png`;
+            humanChoice.className = userChoice;
 
+            getComputerChoice();
+            
+        });
+    });
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -44,28 +53,20 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
+        humanScoreContainer.textContent = humanScore;
         return `You win! ${humanChoice} beats ${computerChoice}.`;
     } else {
         computerScore++;
+        computerScoreContainer.textContent = computerScore;
         return `You lose! ${computerChoice} beats ${humanChoice}.`;
     }
 }
 
-// function playGame() {
-//     let round = 0;
+function playGame() {
+    playRound()
+}
 
-//     for (let i = 0; i < 5; i++) {
-//         const humanChoice = getHumanChoice();
-//         const computerChoice = getComputerChoice();
 
-//         const result = playRound(humanChoice, computerChoice);
-//         console.log(result);
-//         console.log(`Round ${round + 1} Scores: computer ${computerScore} - human ${humanScore}`);
-//         round++;
-//     }
-// }
-
-// playGame();
 
 
 
