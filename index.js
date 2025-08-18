@@ -11,9 +11,9 @@ const userOptions = document.querySelectorAll('#user-options .rps-icon');
 
 const humanChoice = document.querySelector(".humanChoice");
 const computerChoice = document.getElementById('computerChoice');
-
-
 const roundContainer = document.querySelector(".gameRounds > span");
+const humanScoreContainer = document.querySelector("#humanScore > span");
+const computerScoreContainer = document.querySelector("#computerScore > span");
 
 function getComputerChoice() {
     // Pick a random decision
@@ -37,6 +37,7 @@ function getHumanChoice() {
             humanChoice.className = userChoice;
 
             getComputerChoice();
+            
         });
     });
 }
@@ -52,20 +53,20 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
+        humanScoreContainer.textContent = humanScore;
         return `You win! ${humanChoice} beats ${computerChoice}.`;
     } else {
         computerScore++;
+        computerScoreContainer.textContent = computerScore;
         return `You lose! ${computerChoice} beats ${humanChoice}.`;
     }
 }
 
 function playGame() {
-    if (getHumanChoice()) {
-        console.log(getHumanChoice);
-    }
+    playRound()
 }
 
-playGame();
+
 
 
 
