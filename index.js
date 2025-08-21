@@ -2,71 +2,56 @@ let humanScore = 0;
 let computerScore = 0;
 
 const decisions = [
-    { choice: "rock", image: "./rps Game Images/rock.png" },
-    { choice: "paper", image: "./rps Game Images/paper.png" },
-    { choice: "scissors", image: "./rps Game Images/scissors.png" }
+  { choice: "rock", image: "./rps_game_images/rock.png", borderColor: "red" },
+  { choice: "paper", image: "./rps_game_images/paper.png", borderColor: "blue" },
+  { choice: "scissors", image: "./rps_game_images/scissors.png", borderColor: "green" }
 ];
 
-const userOptions = document.querySelectorAll('#user-options .rps-icon');
+const humanScoreContainer = document.querySelector("#humanScore span");
+const computerScoreContainer = document.querySelector("#computerScore span");
+const gameRoundsContainer = document.querySelector(".gameRounds span");
+const computerFinalScoreContainer = document.querySelector("#computerFinalScore");
+const humanFinalScoreContainer = document.querySelector("#humanFinalScore");
+const humanMotivationContainer = document.querySelector(".winning");
+const computerChoiceContainer = document.querySelector(".computerChoice img");
+const humanChoiceContainer = document.querySelector(".userChoice img");
+const humanMovesContainer = document.querySelectorAll("#userOptions .choice img");
 
-const humanChoice = document.querySelector(".humanChoice");
-const computerChoice = document.getElementById('computerChoice');
-const roundContainer = document.querySelector(".gameRounds > span");
-const humanScoreContainer = document.querySelector("#humanScore > span");
-const computerScoreContainer = document.querySelector("#computerScore > span");
+// Utility to render choice visuals
+function renderChoice(container, choice, borderColor) {
+  container.src = `./rps_game_images/${choice}.png`;
+  container.style.border = `5px solid ${borderColor}`;
+}
 
+// Random computer decision
 function getComputerChoice() {
-    // Pick a random decision
-    const { choice, image } = decisions[Math.floor(Math.random() * decisions.length)];
-
-    // Update image and class
-    computerChoice.src = image;
-    computerChoice.className = choice; // replaces all classes with the new one
-
-    return choice;
+  return decisions[Math.floor(Math.random() * decisions.length)];
 }
 
-function getHumanChoice() {
-    const userOptions = document.querySelectorAll('#user-options .rps-icon');
-
-    userOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            const userChoice = option.getAttribute('data-choice');
-            // Update image and class
-            humanChoice.src = `./rps Game Images/${userChoice}.png`;
-            humanChoice.className = userChoice;
-
-            getComputerChoice();
-            
-        });
-    });
-}
-
+// Main game logic
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        return "It's a tie!";
-    }
-
-    if (
-        (humanChoice === "rock" && computerChoice === "scissors") ||
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper")
-    ) {
-        humanScore++;
-        humanScoreContainer.textContent = humanScore;
-        return `You win! ${humanChoice} beats ${computerChoice}.`;
-    } else {
-        computerScore++;
-        computerScoreContainer.textContent = computerScore;
-        return `You lose! ${computerChoice} beats ${humanChoice}.`;
-    }
+  console.log("Human:", humanChoice, "| Computer:", computerChoice.choice);
+  renderChoice(computerChoiceContainer, computerChoice.choice, computerChoice.borderColor);
+  // Add scoring logic here if needed
 }
 
-function playGame() {
-    playRound()
+// Setup event listeners once
+function setupHumanMoves() {
+  humanMovesContainer.forEach(move => {
+    move.addEventListener("click", () => {
+      const choice = move.id;
+      const borderColor = move.dataset.color;
+      renderChoice(humanChoiceContainer, choice, borderColor);
+
+      const computerChoice = getComputerChoice();
+      playRound(choice, computerChoice);
+    });
+  });
 }
 
+// Initialize game
+function initGame() {
+  setupHumanMoves();
+}
 
-
-
-
+initGame();
