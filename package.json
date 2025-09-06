@@ -1,0 +1,26 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissors is a simple hand game played between two people, where each player simultaneously chooses rock, paper, or scissors. Rock beats scissors, scissors beats paper, and paper beats rock. This project implements the classic game, allowing users to play against the computer.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oldcode-dev/rock-paper-scissors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oldcode-dev/rock-paper-scissors/issues"
+  },
+  "homepage": "https://github.com/oldcode-dev/rock-paper-scissors#readme",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}
