@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
     <header>
         <h1>RockPaperScissors</h1>
-        <div class="user-wrapper">
-            <div class="user-highScore">High Score: <span>1250</span></div>
-            <div class="user-name">Alex Smith</div>
-        </div>
     </header>
     <main>
         <div class="playGround">
@@ -22,19 +18,20 @@
                 <div class="user">
                     <p>You</p>
                     <div class="userChoice">
-                        <img src="./rps_game_images/rock.png" class="rock humanChoice" alt="">
+                        <img src="./assets/images/rock.png" class="rock humanChoice" id="humanChoice" alt="">
                     </div>
                     <p id="humanScore">Score: <span>0</span></p>
                 </div>
                 <div class="scoreContainer">
-                    <div class="gameRounds">Round <span>5</span></div>
-                    <div class="score"><span id="computerFinalScore">3</span> - <span id="humanFinalScore">1</span></div>
+                    <div id="gameRounds">Round <span>1</span></div>
+                    <div class="score"><span id="humanFinalScore">0</span> - <span id="computerFinalScore">0</span></div>
                     <div class="winning">You're winning!</div>
+                    <button id="resetBtn">Play Again</button>
                 </div>
                 <div class="computer">
                     <p>Computer</p>
                     <div class="computerChoice">
-                        <img src="./rps_game_images/scissors.png" class="scissors" id="computerChoice" alt="">
+                        <img src="./assets/images/scissors.png" class="scissors" id="computerChoice" alt="">
                     </div>
                     <p id="computerScore">Score: <span>0</span></p>
                 </div>
@@ -43,15 +40,15 @@
                 <h2>Choose Your Move</h2>
                 <div class="choices" id="userOptions">
                     <div class="rock-choice choice">
-                        <img src="./rps_game_images/rock.png" class="rock rps-icon" data-color="red" id="rock" alt="rock">
+                        <img src="./assets/images/rock.png" class="rock rps-icon" data-color="red" id="rock" alt="rock">
                         <p>Rock</p>
                     </div>
                     <div class="paper-choice choice">
-                        <img src="./rps_game_images/paper.png" class="paper rps-icon" data-color="blue" id="paper" alt="paper">
+                        <img src="./assets/images/paper.png" class="paper rps-icon" data-color="blue" id="paper" alt="paper">
                         <p>Paper</p>
                     </div>
                     <div class="scissors-choice choice">
-                        <img src="./rps_game_images/scissors.png" class="scissors rps-icon" data-color="green" id="scissors" alt="scissors">
+                        <img src="./assets/images/scissors.png" class="scissors rps-icon" data-color="green" id="scissors" alt="scissors">
                         <p>scissors</p>
                     </div>
                 </div>
@@ -61,31 +58,15 @@
                 <div class="historyWrapper">
                     <div class="roundsHistory">
                         <h4>Round</h4>
-                        <p>4</p>
-                        <p>3</p>
-                        <p>2</p>
-                        <p>1</p>
                     </div>
-                    <div class="humanChoice">
+                    <div id="finalHumanChoice">
                         <h4>Your Choice</h4>
-                        <p>Rock</p>
-                        <p>Paper</p>
-                        <p>Scissors</p>
-                        <p>Rock</p>
                     </div>
-                    <div class="computerChoice">
+                    <div id="finalComputerChoice">
                         <h4>Computer's Choice</h4>
-                        <p>Scissors</p>
-                        <p>Rock</p>
-                        <p>Paper</p>
-                        <p>Paper</p>
                     </div>
                     <div class="result">
                         <h4>Result</h4>
-                        <p class="winning">Win</p>
-                        <p class="winning">Win</p>
-                        <p class="winning">Win</p>
-                        <p class="loosing">Loss</p>
                     </div>
                 </div>
 
@@ -109,15 +90,26 @@
         <div class="socials-container">
             <h3>Connect</h3>
             <div class="socials">
-                <div class="twitter"></div>
-                <div class="facebook"></div>
-                <div class="instagram"></div>
-                <div class="discord"></div>
+                <div class="twitter">
+                    <a href="https://x.com/E_O_Frimpong" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/images/twitter.png" alt="Twitter" style="width:32px;height:32px;cursor:pointer;">
+                    </a>
+                </div>
+                <div class="LinkedIn">
+                    <a href="https://www.linkedin.com/in/ernest-opoku-3444b3206" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/images/linkedin.png" alt="LinkedIn" style="width:32px;height:32px;cursor:pointer;">
+                    </a>
+                </div>
+                <div class="discord">
+                    <a href="https://discord.com/invite/ernie4216" target="_blank" rel="noopener noreferrer">
+                        <img src="./assets/images/discord.png" alt="Discord" style="width:32px;height:32px;cursor:pointer;">
+                    </a>
+                </div>
             </div>
             <p>&copy; 2023 RockPaperScissors</p>
         </div>
     </footer>
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
