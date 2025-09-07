@@ -18,7 +18,7 @@ document.getElementById('userOptions').addEventListener('click', (e) => {
   const result = determineWinner(humanChoice, computerChoice);
   score = updateScore(result, score);
   // saveHighScore(score);
-  document.querySelector(".user-highScore > span").textContent = getHighScore();
+  // document.querySelector(".user-highScore > span").textContent = getHighScore();
   updateDOMAfterRound(humanChoice, computerChoice, result, score);
 
   round++;
