@@ -1,7 +1,3 @@
-Certainly, Ernest. Here's a professional, well-structured `README.md` tailored to your **Rock Paper Scissors** project, incorporating everything we've discussed — from gameplay logic and DOM manipulation to testing and styling.
-
----
-
 # 🎮 Rock Paper Scissors – Interactive Web Game
 
 A modern, browser-based implementation of the classic Rock Paper Scissors game, built with **vanilla JavaScript**, **HTML5**, and **CSS3**. This project showcases dynamic DOM manipulation, modular architecture, and test-driven development using **Jest**. Designed with a clean UI, responsive layout, and engaging user feedback, it serves as both a fun experience and a demonstration of frontend engineering fundamentals.
